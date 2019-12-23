@@ -13,8 +13,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.karunesh.database.databasedemo.entity.Person;
 import com.karunesh.database.databasedemo.jdbc.PersonJDBCDao;
 
-@SpringBootApplication
-public class DatabaseDemoApplication implements CommandLineRunner {
+//@SpringBootApplication
+public class SpringDemoApplication implements CommandLineRunner {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -22,7 +22,7 @@ public class DatabaseDemoApplication implements CommandLineRunner {
 	private PersonJDBCDao dao;
 
 	public static void main(String[] args) {
-		SpringApplication.run(DatabaseDemoApplication.class, args);
+		SpringApplication.run(SpringDemoApplication.class, args);
 	}
 
 	@Override
