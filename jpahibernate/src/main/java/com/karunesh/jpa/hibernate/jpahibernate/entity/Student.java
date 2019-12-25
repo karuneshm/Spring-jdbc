@@ -4,14 +4,16 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
 
 @Entity
-public class Course {
+public class Student {
 	
 	@Id
 	@GeneratedValue
@@ -20,14 +22,17 @@ public class Course {
 	@Column(nullable= false)
 	private String name;
 	
+	@OneToOne(fetch=FetchType.LAZY)
+	private Passport passport;
 	
-	public Course() {
+	
+	public Student() {
 		
 	}
 	
 	
 
-	public Course(String name) {
+	public Student(String name) {
 		this.name = name;
 	}
 
@@ -42,10 +47,24 @@ public class Course {
 	public Long getId() {
 		return id;
 	}
+	
+	
+
+	public Passport getPassport() {
+		return passport;
+	}
+
+
+
+	public void setPassport(Passport passport) {
+		this.passport = passport;
+	}
+
+
 
 	@Override
 	public String toString() {
-		return "Course [id=" + id + ", name=" + name + "]";
+		return "Student [id=" + id + ", name=" + name + "]";
 	}
 	
 	
