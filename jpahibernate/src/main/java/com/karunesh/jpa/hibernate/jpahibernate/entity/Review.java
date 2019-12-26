@@ -4,6 +4,7 @@ package com.karunesh.jpa.hibernate.jpahibernate.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 
 
@@ -18,6 +19,9 @@ public class Review {
 	
 	private String description;
 	
+	@ManyToOne
+	private Course course;
+	
 	
 	public Review() {
 		
@@ -29,13 +33,13 @@ public class Review {
 		this.rating = rating;
 		this.description = description;
 	}
-
 	
 
 	public String getDescription() {
 		return description;
 	}
 
+	
 
 
 	public void setDescription(String description) {
@@ -52,6 +56,19 @@ public class Review {
 
 	public void setRating(String rating) {
 		this.rating = rating;
+	}
+
+	
+
+
+	public Course getCourse() {
+		return course;
+	}
+
+
+
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 

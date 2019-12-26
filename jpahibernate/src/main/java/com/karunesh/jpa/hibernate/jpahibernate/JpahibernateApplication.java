@@ -1,5 +1,8 @@
 package com.karunesh.jpa.hibernate.jpahibernate;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.karunesh.jpa.hibernate.jpahibernate.entity.Course;
+import com.karunesh.jpa.hibernate.jpahibernate.entity.Review;
+import com.karunesh.jpa.hibernate.jpahibernate.entity.Student;
 import com.karunesh.jpa.hibernate.jpahibernate.repository.CourseRepository;
 import com.karunesh.jpa.hibernate.jpahibernate.repository.StudentRepository;
 
@@ -35,7 +40,17 @@ public class JpahibernateApplication implements CommandLineRunner {
 		 * repository.playWithEntityManager();
 		 */
 		
-		studentRepository.saveStudentWithPassport();
+		//studentRepository.saveStudentWithPassport();
+		//courseRepository.addReviewsForCourse();
+		//List<Review> reviews = new ArrayList<>();
+		//reviews.add(new Review("5","Good Course"));
+		//reviews.add(new Review("5","Hatoff."));
+		
+		//courseRepository.addReviewsForCourse(10003L, reviews);
+		//studentRepository.insertStudentAndCourse();
+		studentRepository.insertStudentAndCourseGeneralized(new Student("jack"), new Course("MicroServices in 100 Steps"));
+	   
+		
 	}
 
 }

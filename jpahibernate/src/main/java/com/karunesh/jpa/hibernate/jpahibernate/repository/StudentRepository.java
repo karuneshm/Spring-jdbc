@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.karunesh.jpa.hibernate.jpahibernate.entity.Course;
 import com.karunesh.jpa.hibernate.jpahibernate.entity.Passport;
 import com.karunesh.jpa.hibernate.jpahibernate.entity.Student;
 
@@ -44,6 +45,25 @@ public class StudentRepository {
 		Student student = new Student("Mike");
 		student.setPassport(passport);
 		entityManager.persist(student);
+		
+	}
+	
+	public void insertStudentAndCourse() {
+		Student student = new Student("jack");
+		Course course = new Course("MicroServices in 100 Steps");
+		entityManager.persist(student);
+		entityManager.persist(course);
+		student.addCourse(course);
+		course.addStudent(student);
+		entityManager.persist(student);
+
+	}
+	
+	public void insertStudentAndCourseGeneralized(Student student, Course course) {
+		student.addCourse(course);
+		course.addStudent(student);
+		entityManager.persist(student);
+		entityManager.persist(course);
 		
 	}
 	
