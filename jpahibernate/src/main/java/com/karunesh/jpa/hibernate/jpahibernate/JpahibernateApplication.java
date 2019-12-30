@@ -1,5 +1,6 @@
 package com.karunesh.jpa.hibernate.jpahibernate;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,9 +12,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.karunesh.jpa.hibernate.jpahibernate.entity.Course;
+import com.karunesh.jpa.hibernate.jpahibernate.entity.FullTimeEmployee;
+import com.karunesh.jpa.hibernate.jpahibernate.entity.PartTimeEmployee;
 import com.karunesh.jpa.hibernate.jpahibernate.entity.Review;
 import com.karunesh.jpa.hibernate.jpahibernate.entity.Student;
 import com.karunesh.jpa.hibernate.jpahibernate.repository.CourseRepository;
+import com.karunesh.jpa.hibernate.jpahibernate.repository.EmployeeRepository;
 import com.karunesh.jpa.hibernate.jpahibernate.repository.StudentRepository;
 
 @SpringBootApplication
@@ -26,6 +30,9 @@ public class JpahibernateApplication implements CommandLineRunner {
 	
 	@Autowired
 	private StudentRepository studentRepository;
+	
+	@Autowired
+	private EmployeeRepository employeeRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(JpahibernateApplication.class, args);
@@ -48,8 +55,11 @@ public class JpahibernateApplication implements CommandLineRunner {
 		
 		//courseRepository.addReviewsForCourse(10003L, reviews);
 		//studentRepository.insertStudentAndCourse();
-		studentRepository.insertStudentAndCourseGeneralized(new Student("jack"), new Course("MicroServices in 100 Steps"));
-	   
+		//studentRepository.insertStudentAndCourseGeneralized(new Student("jack"), new Course("MicroServices in 100 Steps"));
+		//employeeRepository.insert(new FullTimeEmployee("Jack", new BigDecimal("10000")));
+		//employeeRepository.insert(new PartTimeEmployee("Jill", new BigDecimal("50")));
+		
+		//logger.info(" All Employees ->{} ",employeeRepository.retriveAllEmployees());
 		
 	}
 

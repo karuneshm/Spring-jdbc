@@ -39,6 +39,19 @@ class CourseRepositoryTest {
 	}
 	
 	@Test
+	@Transactional
+	public void findById_firstLevelCacheDemo() {
+		Course c = repository.findById(10001L);
+		logger.info("First Course Retrived {}", c);
+		
+		Course c1 = repository.findById(10001L);
+		logger.info("First Course Retrived again {} ", c1);
+		
+		assertEquals("Jpa And Hibernate",c.getName());	
+		assertEquals("Jpa And Hibernate",c1.getName());	
+	}
+	
+	@Test
 	@DirtiesContext
 	public void deleteByID_Basic() {
 		repository.deleteById(10002L);
